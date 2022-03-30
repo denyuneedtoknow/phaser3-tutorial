@@ -98,15 +98,15 @@ export default class GameScene extends Phaser.Scene {
     }
     update() {
         if (this.gameOver) {
-            // this.scene.start("GameOver");
-            this.time.addEvent({
-                delay: 2000,
-                loop: false,
-                callback: () => {
-                    this.scene.start('hello-world');
-                }
-            })
-
+            this.scene.start("GameOver");
+            // this.time.addEvent({
+            //     delay: 2000,
+            //     loop: false,
+            //     callback: () => {
+            //         this.scene.start('hello-world');
+            //     }
+            // })
+            this.gameOver = false
         }
 
         if (this.cursors.left.isDown) {
@@ -132,7 +132,6 @@ export default class GameScene extends Phaser.Scene {
     collectStar(player, star) {
         star.disableBody(true, true)
         this.scoreLabel.add(10)
-        console.log(this.stars.countActive(true));
         if (this.stars.countActive(true) === 0) {
             //  A new batch of stars to collect
             this.stars.children.iterate((c) => {
