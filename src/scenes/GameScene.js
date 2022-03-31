@@ -99,13 +99,6 @@ export default class GameScene extends Phaser.Scene {
     update() {
         if (this.gameOver) {
             this.scene.start("GameOver");
-            // this.time.addEvent({
-            //     delay: 2000,
-            //     loop: false,
-            //     callback: () => {
-            //         this.scene.start('hello-world');
-            //     }
-            // })
             this.gameOver = false
         }
 
