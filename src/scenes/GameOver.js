@@ -9,10 +9,12 @@ export default class GameOver extends Phaser.Scene {
 
     }
     create() {
-        this.add.text(200, 200, 'Game Over', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' })
-        this.input.on('pointerup', () => {
-            this.scene.start('hello-world')
-        });
+        this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        this.add.text(200, 200, 'Game Over, Press SPACEBAR to restart', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' })
     }
-    update() { }
+    update() {
+        if (this.spaceKey.isDown) {
+            this.scene.start('hello-world')
+        }
+    }
 }
