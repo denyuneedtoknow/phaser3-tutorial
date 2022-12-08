@@ -10,6 +10,9 @@ export default class ScoreLabel extends Phaser.GameObjects.Text {
     setScore(score) {
         this.score = score
         this.updateScoretext()
+        this.data = this.scene.game.scene.keys['gameScene'].sky.data
+        this.data.set('points', score)
+
     }
     add(points) {
         this.setScore(this.score + points)

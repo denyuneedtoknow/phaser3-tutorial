@@ -32,7 +32,9 @@ export default class GameScene extends Phaser.Scene {
 
     }
     create() {
-        this.add.image(400, 300, 'sky')
+        this.sky = this.add.image(400, 300, 'sky')
+        this.sky.setDataEnabled()
+        this.sky.data.set('points', '')
         const platforms = this.createPlatforms()
         this.player = this.createPlayer()
         this.cursors = this.input.keyboard.createCursorKeys()
@@ -51,6 +53,8 @@ export default class GameScene extends Phaser.Scene {
         this.physics.add.collider(this.player, bombsGroup, this.hitBomb, null, this)
     }
     createPlatforms() {
+        this.scale.scaleMode
+
         const platforms = this.physics.add.staticGroup()
         platforms.create(400, 568, GROUND_KEY).setScale(2).refreshBody()
 
@@ -139,7 +143,9 @@ export default class GameScene extends Phaser.Scene {
         const style = { fontSize: '32px', fill: '#000' }
         const label = new ScoreLabel(this, x, y, score, style)
         this.add.existing(label)
+        console.log(this.game.scene.keys['gameScene'].sky.data.list);
         return label
+
     }
     hitBomb(player, bomb) {
         this.physics.pause()

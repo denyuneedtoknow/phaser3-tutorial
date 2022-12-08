@@ -13,9 +13,8 @@ export default class HelloWorldScene extends Phaser.Scene {
     create() {
 
         this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-        this.sky=this.add.image(400, 300, 'sky')
-                console.log(this.sky);
-        this.add.text( this.sky.x/2, this.sky.y/2,'Press SPACEBAR to play', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' })
+        this.sky = this.add.image(400, 300, 'sky')
+        this.add.text(this.sky.x / 2, this.sky.y / 2, 'Press SPACEBAR to play', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' })
 
     }
     update() {
